@@ -2,7 +2,7 @@
     <Form @submit="submitEmployee" :validation-schema="employeeFormSchema">
         <div class="form-group">
             <label for="msnv">Mã số nhân viên </label>
-            <Field name="msnv" type="text" class="form-control" v-model="employeeLocal.msnv" />
+            <Field disabled name="msnv" type="text" class="form-control" v-model="employeeLocal.msnv" />
             <ErrorMessage name="msnv" class="error-feedback" />
         </div>
         <div class="form-group">
@@ -49,11 +49,6 @@ export default {
     },
     data() {
         const employeeFormSchema = yup.object().shape({
-            msnv: yup
-                .string()
-                .min(8, "Mã nhân viên ít nhất 8 kí tự")
-                .required("Mã nhân viên không được để trống"),
-
             hotennv: yup
                 .string()
                 .required("Họ tên nhân viên không được để trống"),

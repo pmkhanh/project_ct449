@@ -36,7 +36,7 @@
 
 
         <div class="form-group mt-3">
-            <button class="btn btn-primary me-4">Lưu</button>
+            <button class="btn btn-primary me-4" @click="submitTrade" >Lưu</button>
             <button v-if="tradeLocal._id" type="button" class="ml-2 btn btn-danger" @click="deleteTrade">
                 Xóa
             </button>
@@ -92,6 +92,7 @@ export default {
         this.selectedReader();
         const staffJson = sessionStorage.getItem("nhanvien");
         this.nhanvien = JSON.parse(staffJson);
+
     },
     methods: {
         submitTrade() {

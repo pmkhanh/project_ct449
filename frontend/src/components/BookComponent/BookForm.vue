@@ -36,7 +36,7 @@
                 <option selected>{{ bookLocal.manxb }}</option>
                 <option v-for="publisher in publishers" :value="publisher.manxb">
 
-                    {{ publisher.manxb }}
+                    {{ publisher.manxb + "-" + publisher.tennxb }}
                 </option>
             </select>
         </div>

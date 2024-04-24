@@ -1,6 +1,6 @@
 <template>
     <div v-if="trade" class="page col-md-10">
-        <h4 class="d-flex justify-content-center">Hiệu chỉnh thông tin nhân viên</h4>
+        <h4 class="d-flex justify-content-center">Hiệu chỉnh thông tin mượn sách</h4>
         <div class="container col-md-8">
             <TradeForm :trade="trade" @submit:trade="updateTrade" @delete:trade="deleteTrade" />
             <p>{{ message }}</p>
@@ -19,8 +19,8 @@ export default {
     },
     data() {
         return {
-            trade: null,
             nhanvien: null,
+            trade: null,
             message: "",
         };
     },
@@ -32,7 +32,6 @@ export default {
         async getTrade(id) {
             try {
                 this.trade = await TradeService.get(id);
-
             } catch (error) {
                 console.log(error);
                 this.$router.push({
@@ -47,10 +46,8 @@ export default {
         },
         async updateTrade(data) {
             try {
-                this.data.msnv = nhanvien.msnv;
-                console.log(this.data);
                 await TradeService.update(this.trade._id, data);
-                alert("Thông tin nhân viên được cập nhật thành công!")
+                alert("Thông tin mượn sách được cập nhật thành công!")
                 this.$router.push({
                     name: "trade",
                 })
